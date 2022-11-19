@@ -12,6 +12,24 @@ app.use(express.urlencoded({ extended: true })); // Parse URL-encoded bodies
 let entities = require('./entities.json');
 const members = entities.members;
 
+/* app.get('/members/login', function (req, resp) {
+    const username = req.body.loginuser;
+    const password = req.body.loginpass;
+    /* check username and password match 
+    if (username === members.username && password === members.password) {
+        resp.send('login successful');
+    }
+    
+}); */
+
+app.get('/members/password/:user', function (req, resp) {
+    for (let i = 0; i < members.length; i++) {
+        if (members[i].username === req.params.user) {
+            resp.send(members[i].password);
+        }
+    }
+})
+
 app.post('/members/add', function (req, resp) {
     const username = req.body.newMemberUser;
     console.log(username)
@@ -31,6 +49,21 @@ app.post('/members/add', function (req, resp) {
     const email = req.body.newMemberEmail;
     const age = req.body.newMemberAge;
     const location = req.body.newMemberLocation;
+    let interests = []
+    if (req.body.environment === 'on'){
+        interests.push("environment")
+    }
+    if (req.body.homelessness === 'on'){
+        interests.push("homelessness")
+    }
+    if (req.body.animals === 'on'){
+        interests.push("animals")
+    }
+    if (req.body.youth === 'on'){
+        interests.push("youth")
+    }
+   
+   
     let newMember = {
         username: username,
         name: name,
@@ -40,7 +73,9 @@ app.post('/members/add', function (req, resp) {
         location: location,
         availibility: "",
         buzz: 0,
-        donationHistory: []
+        donationHistory: [],
+        interests: interests
+
     }
     console.log(newMember)
     members.push(newMember)

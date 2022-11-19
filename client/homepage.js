@@ -70,7 +70,7 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 
 window.initMap=initMap;
 
-document.getElementById('search-btn').addEventListener('click', () => {
+document.getElementById('home_btn').addEventListener('click', () => {
     var select1 = document.getElementById('HourSelect');
     var select2 = document.getElementById('TypeSelect');
     postcode = document.getElementById('postcode');
