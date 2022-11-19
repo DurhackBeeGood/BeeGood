@@ -17,10 +17,12 @@ app.post('/members/add', function (req, resp) {
     print(username)
     
 
-    // fixing this so it works now:
-    if (members[username] !== undefined){
-        resp.status(404).send('Sorry, this fish was not found! Check your id is correct.');
-        return;
+    for (let i = 0; i < members.length; i++) {
+        m = members[i]
+        if( m["username"] == username){
+            resp.status(404).send('Sorry, this fish was not found! Check your id is correct.');
+            return;
+        }
     }
     
     const name = req.body.newMemberName;
