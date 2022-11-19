@@ -18,7 +18,7 @@
     <body>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <img src="https://www.vhv.rs/file/max/29/292832_honeycomb-pattern-png.png" alt="logo" width="80" height="60">
-            <a class="navbar-brand" href="#">BeeGood.</a>
+            <a class="navbar-brand" href="#">BeGood.</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -128,18 +128,6 @@
             </div>
         </section>
         
-        <div class = "map">
-            <iframe 
-                width="600" 
-                height="450" 
-                style="border:0" 
-                loading="lazy"
-                allowfullscreen
-                referrerpolicy="no-referrer-when-downgrade"
-                src="https://www.google.com/maps/embed/v1/search?key=AIzaSyCUjDQBFEoOkWwcQ9Arxqii9qlGo4UUXsg&q=charities+in+durham">
-            </iframe>
-        </div>
-        
         <hr class="featurette-divider">
 
         <div class="row featurette">
@@ -177,11 +165,20 @@
     
         <hr class="featurette-divider">
 
+        <div id="map"></div>
     
         <footer class="container">
             <p class="float-end"><a href="#">Back to top</a></p>
             <p>&copy; 2022 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms & Conditions</a></p>
           </footer>
+        </center>
+
+        <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCUjDQBFEoOkWwcQ9Arxqii9qlGo4UUXsg&callback=initMap&v=weekly"
+        defer
+      ></script>
+      <script src="./homepage.js"></script>
+  
     </body>
 
 
