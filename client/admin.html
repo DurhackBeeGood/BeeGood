@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charsert="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BeeGood</title>
+    <!--jQuery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!--CS-->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">BeeGood</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Explore</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Admin Page<span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h2>Join us</h2>
+        <!--Tabs-->
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link active" data-toggle="tab" href="#newMember">Join as a member</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#newCharity">Join as a charity</a>
+            </li>
+        </ul>
+
+        <!--Tab content-->
+        <div class="tab-content">
+            <div class="tab-pane container active" id="newMember">
+                <form action="http://127.0.0.1:8090/member/add" method="post" name="newMemberForm" id="newMemberForm">
+                    <div class="step step-1 activeStep" id="part1">
+                        <h5>About you</h5>
+                        <label for="newMemberName">Name: </label><br>
+                        <input type="text" name="newMemberName" required><br>
+                        <label for="newMemberEmail">Email: </label><br>
+                        <input type="text" name="newMemberEmail" required><br>
+                        <label for="newMemberAge">Age: </label><br>
+                        <input type="text" name="newMemberAge" required><br>
+                        <label for="newMemberLocation">Location: </label><br>
+                        <input type="text" name="newMemberLocation" required> 
+                    </div>
+                    <div>
+                        <button type="button" class="btn next-btn" id="next-btn">Next</button>
+                    </div>
+                    <div class="step step-2" id="part2">
+                        <div>
+                            <h5>Select the charities that interest you</h5>
+                            <div id="charityTypeOptions"></div>
+                        </div>
+                        <div>
+                            <button type="button" class="btn prev-btn">Prev</button>
+                            <button type="submit" class="btn submit-btn">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="tab-pane container" id="newCharity">
+
+            </div>
+        </div>
+
+    </div>
+    <script src=admin.js></script>
+
+</body>
+</html>
