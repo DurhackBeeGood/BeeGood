@@ -173,7 +173,7 @@ margin-left: 4px;
   
   @media (min-width: 62em) {
     .featurette-heading {
-      margin-top: 7rem;
+      margin-top: -1rem;
     }
   }
 
@@ -185,6 +185,25 @@ margin-left: 4px;
 
 .step.activeStep{
     display: block;
+}
+
+.social-link {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+  border-radius: 50%;
+  transition: all 0.3s;
+  font-size: 0.9rem;
+}
+
+.social-link:hover, .social-link:focus {
+  background: #ddd;
+  text-decoration: none;
+  color: #555;
 }
 
 .submit-btn, .next-btn, .prev-btn{
@@ -214,7 +233,7 @@ margin-left: 4px;
   }
 
   .b-example-divider {
-    height: 3rem;
+    height: 2rem;
     background-color: rgba(0, 0, 0, .1);
     border: solid rgba(0, 0, 0, .15);
     border-width: 1px 0;
