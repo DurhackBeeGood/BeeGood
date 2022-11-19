@@ -12,6 +12,24 @@ app.use(express.urlencoded({ extended: true })); // Parse URL-encoded bodies
 let entities = require('./entities.json');
 const members = entities.members;
 
+/* app.get('/members/login', function (req, resp) {
+    const username = req.body.loginuser;
+    const password = req.body.loginpass;
+    /* check username and password match 
+    if (username === members.username && password === members.password) {
+        resp.send('login successful');
+    }
+    
+}); */
+
+app.get('/members/password/:user', function (req, resp) {
+    for (let i = 0; i < members.length; i++) {
+        if (members[i].username === req.params.user) {
+            resp.send(members[i].password);
+        }
+    }
+})
+
 app.post('/members/add', function (req, resp) {
     const username = req.body.newMemberUser;
     console.log(username)
