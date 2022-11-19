@@ -7,7 +7,8 @@ app.use(express.json());
 app.use(express.static('body-parser'));
 app.use(express.urlencoded({ extended: true })); // Parse URL-encoded bodies
 
-let members = []
+let entities = require('./members.json');
+const members = entities.members;
 
 app.post('/member/add', function (req, resp) {
     const name = req.body.name;
