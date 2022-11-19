@@ -27,12 +27,14 @@ app.post('/members/add', function (req, resp) {
     */
     
     const name = req.body.newMemberName;
+    const pass = req.body.newMemberPass;
     const email = req.body.newMemberEmail;
     const age = req.body.newMemberAge;
     const location = req.body.newMemberLocation;
     let newMember = {
         username: username,
         name: name,
+        pass: pass,
         email: email,
         age: age,
         location: location,
