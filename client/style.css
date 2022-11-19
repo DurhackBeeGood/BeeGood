@@ -33,7 +33,9 @@ body {
   font-family: 'Numans', sans-serif;
 }
 
-
+#map {
+  height: 400px;
+}
 
 .container{
 height: 100%;
