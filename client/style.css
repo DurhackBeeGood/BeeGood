@@ -49,25 +49,8 @@ width: 400px;
 background-color: rgba(0,0,0,0.5) !important;
 }
 
-.social_icon span{
-font-size: 60px;
-margin-left: 10px;
-color: #e77905;
-}
-
-.social_icon span:hover{
-color: white;
-cursor: pointer;
-}
-
 .card-header h3{
 color: white;
-}
-
-.social_icon{
-position: absolute;
-right: 20px;
-top: -45px;
 }
 
 .input-group-prepend span{
