@@ -10,6 +10,9 @@ body {
     padding-top: 3rem;
     padding-bottom: 3rem;
     color: #5a5a5a;
+    background-image: url('https://img.freepik.com/premium-vector/design-wallpaper-hexagon-pattern-honeycomb-pattern-yellow-background-seamless-vector-texture_555489-559.jpg?w=1480');
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 @import url('https://fonts.googleapis.com/css?family=Numans');
