@@ -10,7 +10,7 @@ app.use(express.urlencoded({ extended: true })); // Parse URL-encoded bodies
 let entities = require('./entities.json');
 const members = entities.members;
 
-app.post('/member/add', function (req, resp) {
+app.post('/members/add', function (req, resp) {
     const name = req.body.name;
     const email = req.body.email;
     const age = req.body.age;
