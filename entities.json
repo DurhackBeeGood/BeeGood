@@ -1,5 +1,1 @@
-{
-    "members":[
-        {"id":"member1","name":"Joe","email":"Joe@gmail.com","age":20,"location":"Durham"}
-    ]
-}
+{"members":[{"username":"member1","name":"Joe","email":"Joe@gmail.com","age":20,"location":"Durham"},{"username":"emily","name":"emily","email":"emily","age":"8","location":"durham"},{"username":"emily","name":"emily","email":"emily","age":"8","location":"durham"},{"username":"emily","name":"emily","email":"emily","age":"8","location":"durham"}]}
