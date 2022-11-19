@@ -12,7 +12,7 @@
  */
 
  const steps = Array.from(document.querySelectorAll('form .step'));
- const prevBtn = document.querySelectorAll('form .previous-btn');
+ const prevBtn = document.querySelectorAll('form .prev-btn');
  const form = document.getElementById('newMemberForm');
 
  prevBtn.forEach(button => {
