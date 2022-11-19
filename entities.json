@@ -1,5 +1,5 @@
 {
     "members":[
-        {"id":"member1", "name":"Joe", "email":"Joe@gmail.com", "age":20, "location":"Durham"}
+        {"id":"member1","name":"Joe","email":"Joe@gmail.com","age":20,"location":"Durham"}
     ]
 }
