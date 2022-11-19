@@ -62,25 +62,26 @@
         </ul>
 
         <!--Tab content-->
-        <div class="tab-content">
-            <div class="tab-pane container active" id="newMember">
+        <div class="container">
+            <div class="d-flex justify-content-center h-100" id="newMember">
+                <div class="cards">
                 <form action="http://127.0.0.1:8090/members/add" method="post" name="newMemberForm" id="newMemberForm">
                     <div class="step step-1 activeStep" id="part1">
-                        <h5>About you</h5>
-                        <label for="newMemberUser">Username: </label><br>
+                        <h5 style="color:black">About you</h5>
+                        <label for="newMemberUser", style="color:black" >Username: </label><br>
                         <input type="text" name="newMemberUser" required><br>
-                        <label for="newMemberPass">Password: </label><br>
+                        <label for="newMemberPass", style="color:black">Password: </label><br>
                         <input type="text" name="newMemberPass" required> <br>
-                        <label for="newMemberName">Name: </label><br>
+                        <label for="newMemberName", style="color:black">Name: </label><br>
                         <input type="text" name="newMemberName" required><br>
-                        <label for="newMemberEmail">Email: </label><br>
+                        <label for="newMemberEmail", style="color:black">Email: </label><br>
                         <input type="text" name="newMemberEmail" required><br>
-                        <label for="newMemberAge">Age: </label><br>
+                        <label for="newMemberAge", style="color:black">Age: </label><br>
                         <input type="text" name="newMemberAge" required><br>
-                        <label for="newMemberLocation">Location: </label><br>
+                        <label for="newMemberLocation", style="color:black">Location: </label><br>
                         <input type="text" name="newMemberLocation" required> 
                     </div>
-                    <div>
+                    <div id="btn_center">
                         <button type="button" class="btn next-btn" id="next-btn">Next</button>
                     </div>
                     <div class="step step-2" id="part2">
@@ -94,6 +95,7 @@
                         </div>
                     </div>
                 </form>
+            </div>
             </div>
             <div class="tab-pane container" id="newCharity">
 

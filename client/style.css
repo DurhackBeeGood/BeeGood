@@ -48,6 +48,14 @@ margin-bottom: auto;
 width: 400px;
 background-color: rgba(0,0,0,0.5) !important;
 }
+.cards{
+  height: 475px;
+  margin-top: 65px;
+  margin-bottom: auto;
+  
+  width: 300px;
+  background-color: rgb(227, 175, 32) !important;
+}
 
 .card-header h3{
 color: white;
@@ -181,12 +189,15 @@ margin-left: 4px;
 
 .submit-btn, .next-btn, .prev-btn{
     padding: 5px 15px;
-    background-image: linear-gradient(to bottom right, rgb(34, 202, 104), rgb(36, 158, 240));
-    border: solid 1px rgb(26, 110, 61);
+    background-color: black;
+    border: solid 1px black;
     border-radius: 10px;
     color: rgb(255, 255, 255);
+    text-align: center;
+    align-items: center;
   }
   
+
 
   .bd-placeholder-img {
     font-size: 1.125rem;
@@ -248,4 +259,11 @@ margin-left: 4px;
   #btn_wrapper{
     text-align: center;
   }
-  
+
+  #part1{
+    text-align: center;
+  }
+  #btn_center{
+    padding-block-start: 10px;
+    text-align: center;
+  }
