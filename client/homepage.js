@@ -1,4 +1,5 @@
 let map, infoWindow;
+let dataset = [];
 
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'),{
@@ -23,10 +24,17 @@ function initMap() {
             handleLocationError(true, infoWindow, map.getCenter());
           }
         );
+        for (let i=0; i <dataset.length;i++){
+            const marker = new google.maps.Marker({
+                position: {lat:dataset[i].lat, lng:dataset[i].lng},
+                map: map,
+              });
+        }
       } else {
         // Browser doesn't support Geolocation
         handleLocationError(false, infoWindow, map.getCenter());
       }
+
 };
 
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
