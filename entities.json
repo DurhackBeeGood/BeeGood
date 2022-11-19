@@ -1,12 +1,1 @@
-{"members": [{
-    "username": "DylH",
-    "name": "Dylan",
-    "email": "dylanfxhanson@hotmail.com",
-    "age": 90,
-    "location": "Durham",
-    "availibility": "",
-    "buzz": 0,
-    "donationHistory": []
-  }
-  ]}
-  
+{"members":[{"username":"DylH","name":"Dylan","email":"dylanfxhanson@hotmail.com","age":90,"location":"Durham","availibility":"","buzz":0,"donationHistory":[]},{"username":"emily","name":"efnef","pass":"jnjkn","email":"fnekfne","age":"ekn","location":"efnekn","availibility":"","buzz":0,"donationHistory":[]}]}
