@@ -49,6 +49,21 @@ app.post('/members/add', function (req, resp) {
     const email = req.body.newMemberEmail;
     const age = req.body.newMemberAge;
     const location = req.body.newMemberLocation;
+    let interests = []
+    if (req.body.environment === 'on'){
+        interests.push("environment")
+    }
+    if (req.body.homelessness === 'on'){
+        interests.push("homelessness")
+    }
+    if (req.body.animals === 'on'){
+        interests.push("animals")
+    }
+    if (req.body.youth === 'on'){
+        interests.push("youth")
+    }
+   
+   
     let newMember = {
         username: username,
         name: name,
@@ -58,7 +73,9 @@ app.post('/members/add', function (req, resp) {
         location: location,
         availibility: "",
         buzz: 0,
-        donationHistory: []
+        donationHistory: [],
+        interests: interests
+
     }
     console.log(newMember)
     members.push(newMember)
