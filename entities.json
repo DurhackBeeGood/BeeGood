@@ -1,1 +1,12 @@
-{"members":[{"username":"member1","name":"Joe","email":"Joe@gmail.com","age":20,"location":"Durham"},{"username":"emily","name":"emily","email":"emily","age":"8","location":"durham"},{"username":"emily","name":"emily","email":"emily","age":"8","location":"durham"},{"username":"emily","name":"emily","email":"emily","age":"8","location":"durham"}]}
+{"members": [{
+    "username": "DylH",
+    "name": "Dylan",
+    "email": "dylanfxhanson@hotmail.com",
+    "age": 90,
+    "location": "Durham",
+    "availibility": "",
+    "buzz": 0,
+    "donationHistory": []
+  }
+  ]}
+  

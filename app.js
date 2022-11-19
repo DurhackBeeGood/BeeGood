@@ -14,9 +14,9 @@ const members = entities.members;
 
 app.post('/members/add', function (req, resp) {
     const username = req.body.newMemberUser;
-    print(username)
+    console.log(username)
     
-
+    /*
     for (let i = 0; i < members.length; i++) {
         m = members[i]
         if( m["username"] == username){
@@ -24,6 +24,7 @@ app.post('/members/add', function (req, resp) {
             return;
         }
     }
+    */
     
     const name = req.body.newMemberName;
     const email = req.body.newMemberEmail;
@@ -34,8 +35,12 @@ app.post('/members/add', function (req, resp) {
         name: name,
         email: email,
         age: age,
-        location: location
+        location: location,
+        availibility: "",
+        buzz: 0,
+        donationHistory: []
     }
+    console.log(newMember)
     members.push(newMember)
     const output = '{"members":' + JSON.stringify(members) + "}"
     fs.writeFile("./entities.json",output,(err) => {
