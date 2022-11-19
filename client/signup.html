@@ -18,8 +18,8 @@
 
 <body id="adminbody">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <img src="https://www.vhv.rs/file/max/29/292832_honeycomb-pattern-png.png" alt="logo" width="60" height="60">
-        <a class="navbar-brand" href="#">BeGood.</a>
+        <img src="https://www.vhv.rs/file/max/29/292832_honeycomb-pattern-png.png" alt="logo" width="80" height="60">
+        <a class="navbar-brand" href="#">BeeGood.</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -67,6 +67,8 @@
                 <form action="http://127.0.0.1:8090/members/add" method="post" name="newMemberForm" id="newMemberForm">
                     <div class="step step-1 activeStep" id="part1">
                         <h5>About you</h5>
+                        <label for="newMemberUser">Username: </label><br>
+                        <input type="text" name="newMemberUser" required><br>
                         <label for="newMemberName">Name: </label><br>
                         <input type="text" name="newMemberName" required><br>
                         <label for="newMemberEmail">Email: </label><br>

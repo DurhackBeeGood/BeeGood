@@ -13,11 +13,22 @@ let entities = require('./entities.json');
 const members = entities.members;
 
 app.post('/members/add', function (req, resp) {
+    const username = req.body.newMemberUser;
+    print(username)
+    
+
+    // fixing this so it works now:
+    if (members[username] !== undefined){
+        resp.status(404).send('Sorry, this fish was not found! Check your id is correct.');
+        return;
+    }
+    
     const name = req.body.newMemberName;
     const email = req.body.newMemberEmail;
     const age = req.body.newMemberAge;
     const location = req.body.newMemberLocation;
     let newMember = {
+        username: username,
         name: name,
         email: email,
         age: age,
