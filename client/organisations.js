@@ -17,7 +17,7 @@ document.getElementById("viewAll").addEventListener('click', function(e){
             const name = charity.charity
             const nameHtml = '<p>' + name + "<p>"
             const matchBtnName = 'match' + id
-            const matchBtn = '<button id="'+ matchBtnName+ '">Match</button>'
+            const matchBtn = '<button id="'+ matchBtnName+ '">Sign up to volunteer</button>'
             newHtml = nameHtml + matchBtn
             container.innerHTML += newHtml
 
@@ -78,14 +78,14 @@ document.getElementById("viewMatches").addEventListener('click', function(e){
                 .then(function(body){
                     nameHTML = "<p>"+body+"</p>"
                     const unmatchBtnName = 'unmatch' + charityId
-                    const unmatchBtn = '<button id="'+ unmatchBtnName+ '">Unmatch</button>'
+                    const unmatchBtn = '<button id="'+ unmatchBtnName+ '">Stop volunteering here</button>'
                     newHTML = nameHTML + unmatchBtn
                     document.getElementById("matchesContainer").innerHTML += newHTML
 
                     document.getElementById("unmatch"+charityId).addEventListener('click', function(e){
                         console.log('id: ' + charityId)
                         fetch("http://127.0.0.1:8090/matches/delete/"+currentUser+"/"+charityId)
-                        
+                        alert("We are sorry to see you leave!")
                     })
                 })
             }
