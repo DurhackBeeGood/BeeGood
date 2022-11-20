@@ -74,7 +74,17 @@ document.getElementById("viewMatches").addEventListener('click', function(e){
                 fetch("http://127.0.0.1:8090/charities/name/"+charityId)
                 .then(response => response.text())
                 .then(function(body){
-                    document.getElementById("matchesContainer").innerHTML += "<p>"+body+"</p>"
+                    nameHTML = "<p>"+body+"</p>"
+                    const unmatchBtnName = 'unmatch' + charityId
+                    const unmatchBtn = '<button id="'+ unmatchBtnName+ '">Unmatch</button>'
+                    newHTML = nameHTML + unmatchBtn
+                    document.getElementById("matchesContainer").innerHTML += newHTML
+
+                    document.getElementById("unmatch"+charityId).addEventListener('click', function(e){
+                        console.log('id: ' + charityId)
+                        fetch("http://127.0.0.1:8090/matches/delete/"+currentUser+"/"+charityId)
+
+                    })
                 })
             }
         }

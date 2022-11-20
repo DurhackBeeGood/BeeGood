@@ -78,6 +78,22 @@ app.get('/matches/add/:user/:charityId', function(req, resp){
     })
 })
 
+app.get('/matches/delete/:user/:charityId', function(req, resp){
+    const user = req.params.user;
+    const charityId = parseInt(req.params.charityId);
+    let m;
+    for (let i = 0; i < matches.length; i++) {
+        m = matches[i];
+        if (m.user === user && m.charity === charityId){
+            matches.splice(i, 1);
+        }
+    }
+    const output = '{"members":' + JSON.stringify(members) + ',' + '"charities":' + JSON.stringify(charities) + ',"matches":' + JSON.stringify(matches) + "}"
+    fs.writeFile("./entities.json",output,(err) => {
+        if (err) console.log(err)
+    })
+})
+
 app.post('/members/add', function (req, resp) {
     const username = req.body.newMemberUser;
     
