@@ -1,3 +1,5 @@
+Use Buzz points to end world hunger (and further social issues) with BeGood.
+
 To run code:
 
 Type in terminal "npm install"
