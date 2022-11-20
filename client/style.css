@@ -25,6 +25,24 @@ height: 100%;
 align-content: center;
 }
 
+#viewAll{
+  width: 60%;
+  float: right;
+  margin-top: 5%;
+}
+
+#matchMe{
+  width: 60%;
+  float: left;
+  margin-top: 5%;
+}
+
+#charitiesContainer {
+  width: 100%;
+  margin-left: 5%;
+  margin-top: 5%;
+}
+
 .card{
 height: 370px;
 margin-top: 65px;
