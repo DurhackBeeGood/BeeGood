@@ -1,8 +1,20 @@
+html * {
+  line-height: 1.625;
+  font-family:'Raleway', serif;
+  font-weight:normal;
+}
 
 h1{
     color: black;
     font-size: 50px;
     text-align: center;
+    font-family:'Raleway', serif;
+}
+h2{
+  font-size: 30px;
+  text-align: center;
+  font-family:'Raleway', serif;
+
 }
 
 body {
@@ -11,6 +23,7 @@ body {
     color: #5a5a5a;
     background-size: cover;
     background-repeat: no-repeat;
+    font-family:'Raleway', serif;
 }
 
 @import url('https://fonts.googleapis.com/css?family=Numans');
@@ -311,12 +324,7 @@ margin-left: 4px;
     padding:7% 20% 10% 20%;
     color:#FFC312;
   }
-  h1 {
-    text-align:center;
-    font-size:80px;
-    font-family:'wire one', serif;
-    font-weight:normal;
-  }
+  
   p {
     font-size:20px;
     font-family:'Raleway', serif;
@@ -344,12 +352,4 @@ margin-left: 4px;
   -webkit-background-size: 49px 100%;
   }
   
-  #txts{
-    font-family:'Raleway', serif !important;
-    font-weight:normal;
-  }
-
-  #font-change{
-    font-family:'Raleway', serif !important;
-    font-weight:normal;
-  }
+ 
