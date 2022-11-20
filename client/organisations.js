@@ -1,4 +1,4 @@
-var currentUser = "DylH";
+//var currentUser = "DylH";
 
 document.getElementById("viewAll").addEventListener('click', function(e){
     document.getElementById("viewAll").style.display = "none";
@@ -30,6 +30,7 @@ document.getElementById("viewAll").addEventListener('click', function(e){
                 .then(response => response.json())
                 .then(function(body){
                     alert("Congrats! You are now a volunteer at " + body + "!")
+                    let currentUser = localStorage.getItem("user")
                     fetch("http://127.0.0.1:8090/matches/add/"+currentUser+"/"+id)
                 })
             })
@@ -65,6 +66,7 @@ document.getElementById("viewMatches").addEventListener('click', function(e){
     .then(response => response.json())
     .then(function(body){
         let charityId;
+        let currentUser = localStorage.getItem("user");
         for (let i = 0; i < body.length; i++) {
             match = body[i]
             if (match.user === currentUser){
