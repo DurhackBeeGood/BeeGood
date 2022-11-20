@@ -11,6 +11,7 @@ app.use(express.urlencoded({ extended: true })); // Parse URL-encoded bodies
 
 let entities = require('./entities.json');
 const members = entities.members;
+const charities = entities.charities;
 
 /* app.get('/members/login', function (req, resp) {
     const username = req.body.loginuser;
@@ -21,6 +22,14 @@ const members = entities.members;
     }
     
 }); */
+
+app.get('/members', function(req, resp){
+    resp.json(members)
+})
+
+app.get('/charities', function(req, resp){
+    resp.json(charities)
+})
 
 app.get('/members/password/:user', function (req, resp) {
     for (let i = 0; i < members.length; i++) {
@@ -50,25 +59,30 @@ app.post('/members/add', function (req, resp) {
     const age = req.body.newMemberAge;
     const location = req.body.newMemberLocation;
     let interests = []
-    if (req.body.homelessness === 'on'){
-        interests.push("Homelessness")
+    if (req.body.family === 'on'){
+        interests.push("Family Support")
     }
-    if (req.body.youth === 'on'){
-        interests.push("Youth work")
+    if (req.body.social === 'on'){
+        interests.push("Social Support")
     }
-    if (req.body.green === 'on'){
-        interests.push("Green")
+    if (req.body.health === 'on'){
+        interests.push("Health")
     }
-    if (req.body.beaches === 'on'){
-        interests.push("Beach cleaning")
+    if (req.body.environment === 'on'){
+        interests.push("Environment")
     }
-    if (req.body.elderly === 'on'){
-        interests.push("Working with the elderly")
+    if (req.body.housing === 'on'){
+        interests.push("Housing")
     }
     if (req.body.foodbanks === 'on'){
-        interests.push("Food banks")
+        interests.push("Food Banks")
     }
-   
+    if (req.body.women === 'on'){
+        interests.push("Womens Support")
+    }
+    if (req.body.young === 'on'){
+        interests.push("Young People")
+    }
    
     let newMember = {
         username: username,
@@ -90,8 +104,8 @@ app.post('/members/add', function (req, resp) {
         if (err) console.log(err)
     })
     resp.set('Content-Type', 'text/html');
-    const htmltext = '<html> <head> <link rel="stylesheet" href="../style.css"></head> <body> <h1 class="centered" style="color:white;"> Thanks, the new member has been added! </h1> </body> </html>';
     resp.status(201);
+    return;
     }
 );
 
