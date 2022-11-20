@@ -140,6 +140,10 @@ function trySuggesting(charity, index){
 function makeInfo(charity){
     // MAKE HTML INFO ABOUT THE CHARITY HERE, PICTURES ETC
     // CHARITY.EMAIL, CHARITY.NUMBER, ETC GIVE ALL THE INFO YOU NEED
-    const nameHtml = '<p>' + charity.charity + "<p>"
-    return nameHtml;
+    const nameHtml = '<p>' + charity.charity + "<br>"
+    const number = 'Number: ' + charity.number + "<br>"
+    const email = 'Email: ' + charity.email + "<br>"
+    const hrs = 'Hours per week: ' + charity.volHoursPerWeek + "</p>"
+    newHTML = nameHtml + number + email + hrs
+    return newHTML;
 }
