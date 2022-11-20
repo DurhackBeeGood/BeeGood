@@ -18,18 +18,6 @@ var userCount = entities.userCount;
 var charityCount = entities.charityCount;
 const hours = entities.hours;
 
-
-
-/* app.get('/members/login', function (req, resp) {
-    const username = req.body.loginuser;
-    const password = req.body.loginpass;
-    /* check username and password match 
-    if (username === members.username && password === members.password) {
-        resp.send('login successful');
-    }
-    
-}); */
-
 app.get('/hours/:id', function (req, resp) {
     resp.json(hours[req.params.id])
 })
@@ -177,11 +165,6 @@ app.get('/matches/add/:user/:charityId', function(req, resp){
     }
     matches.push(newMatch)
     writeFile();
-    /*
-    const output = '{"members":' + JSON.stringify(members) + ',' + '"charities":' + JSON.stringify(charities) + ',"matches":' + JSON.stringify(matches) + "}"
-    fs.writeFile("./entities.json",output,(err) => {
-        if (err) console.log(err)
-    })*/
 })
 
 app.get('/matches/delete/:user/:charityId', function(req, resp){
@@ -195,11 +178,6 @@ app.get('/matches/delete/:user/:charityId', function(req, resp){
         }
     }
     writeFile();
-    /*
-    const output = '{"members":' + JSON.stringify(members) + ',' + '"charities":' + JSON.stringify(charities) + ',"matches":' + JSON.stringify(matches) + "}"
-    fs.writeFile("./entities.json",output,(err) => {
-        if (err) console.log(err)
-    })*/
 })
 
 app.post('/hours/update', function (req, resp) {
@@ -215,16 +193,9 @@ app.post('/hours/update', function (req, resp) {
 app.post('/members/add', function (req, resp) {
     const username = req.body.newMemberUser;
     
-    /*
-    for (let i = 0; i < members.length; i++) {
-        m = members[i]
-        if( m["username"] == username){
-            resp.status(404).send('Sorry, this fish was not found! Check your id is correct.');
-            return;
-        }
-    }
-    */
-    
+    /*Should check username is unique here*/
+
+
     const name = req.body.newMemberName;
     const pass = req.body.newMemberPass;
     const email = req.body.newMemberEmail;
@@ -274,12 +245,6 @@ app.post('/members/add', function (req, resp) {
     hours.push(Array(charityCount).fill(0))
 
     writeFile();
-
-/*
-    const output = '{"members":' + JSON.stringify(members) + ',' + '"charities":' + JSON.stringify(charities) + '"matches":' + JSON.stringify(matches) + "}"
-    fs.writeFile("./entities.json",output,(err) => {
-        if (err) console.log(err)
-    })*/
     resp.set('Content-Type', 'text/html');
     resp.status(201);
     console.log(output)
