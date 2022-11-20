@@ -15,6 +15,8 @@ function authenticate(password, input, user) {
     else if (input === password) {
         localStorage.setItem("user", user);
         alert("Login successful");
+        // Redirect to profile page
+        document.location.href = "/profile.html";
     }
     else {
         alert("Incorrect password");
