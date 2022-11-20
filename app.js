@@ -50,7 +50,6 @@ app.get('/members/buzz', function(req, resp){
       }
 
     list.sort((a, b) => parseFloat(b[0]) - parseFloat(a[0]));
-    console.log(list);
     resp.json(list);
 })
 
