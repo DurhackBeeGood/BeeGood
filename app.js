@@ -131,11 +131,12 @@ app.get('/matches/add/:user/:charityId', function(req, resp){
         charity: charity
     }
     matches.push(newMatch)
-    console.log(matches)
+    writeFile();
+    /*
     const output = '{"members":' + JSON.stringify(members) + ',' + '"charities":' + JSON.stringify(charities) + ',"matches":' + JSON.stringify(matches) + "}"
     fs.writeFile("./entities.json",output,(err) => {
         if (err) console.log(err)
-    })
+    })*/
 })
 
 app.get('/matches/delete/:user/:charityId', function(req, resp){
@@ -148,10 +149,12 @@ app.get('/matches/delete/:user/:charityId', function(req, resp){
             matches.splice(i, 1);
         }
     }
+    writeFile();
+    /*
     const output = '{"members":' + JSON.stringify(members) + ',' + '"charities":' + JSON.stringify(charities) + ',"matches":' + JSON.stringify(matches) + "}"
     fs.writeFile("./entities.json",output,(err) => {
         if (err) console.log(err)
-    })
+    })*/
 })
 
 app.post('/members/add', function (req, resp) {
@@ -215,12 +218,13 @@ app.post('/members/add', function (req, resp) {
     userCount = parseInt(userCount) + 1;
     hours.push(Array(charityCount).fill(0))
 
+    writeFile();
 
-
+/*
     const output = '{"members":' + JSON.stringify(members) + ',' + '"charities":' + JSON.stringify(charities) + '"matches":' + JSON.stringify(matches) + "}"
     fs.writeFile("./entities.json",output,(err) => {
         if (err) console.log(err)
-    })
+    })*/
     resp.set('Content-Type', 'text/html');
     resp.status(201);
     console.log(output)
@@ -228,5 +232,13 @@ app.post('/members/add', function (req, resp) {
     }
 
 );
+
+function writeFile(){
+    console.log(matches)
+    const output = '{"members":' + JSON.stringify(members) + ',' + '"charities":' + JSON.stringify(charities) + ',' + '"matches":' + JSON.stringify(matches) + ','+ '"userCount":' + userCount + ',' + '"charityCount":' + charityCount + ',' + '"hours":' +  JSON.stringify(hours) + "}"
+    fs.writeFile("./entities.json",output,(err) => {
+        if (err) console.log(err)
+    })
+}
 
 module.exports = app;
