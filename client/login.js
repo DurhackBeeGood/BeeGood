@@ -1,18 +1,17 @@
 document.getElementById("submitlogin").addEventListener('click', function (e) {
-    alert("here");
     e.preventDefault();
+    const input = document.getElementById("loginpass").value;
     user = document.getElementById("loginuser").value;
-    console.log(user);
     fetch("http://127.0.0.1:8090/members/password/" + user)
     .then(response => response.text())
-    .then(body => authenticate(body))
+    .then(body => authenticate(body, input))
 });
 
 
-function authenticate(password) {
-    console.log(password)
-    const input = document.getElementById("loginpass").value;
-    alert(input)
+function authenticate(password, input) {
+    if(password === ""){
+        alert("User does not exist")
+    }
     if (input === password) {
         alert("Login successful");
     }
