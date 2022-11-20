@@ -49,7 +49,7 @@ app.get('/charities/name/:id', function(req, resp){
             return
         }
     }
-    resp.send(404);
+    resp.sendStatus(404);
 })
 
 app.get('/members/password/:user', function (req, resp) {
