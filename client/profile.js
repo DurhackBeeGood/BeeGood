@@ -69,8 +69,29 @@ function theDomHasLoaded(e) {
             }
           }
          
-        console.log(typeof hourData);        
-        var data = google.visualization.arrayToDataTable(hourData);
+        console.log(hourData);        
+        var data = google.visualization.arrayToDataTable([
+            [
+                "Charity",
+                "Total Hours"
+            ],
+            [
+                "Ushaw College",
+                2
+            ],
+            [
+                "Teesdale Day Clubs",
+                8
+            ],
+            [
+                "Willow Burn Hospice",
+                2
+            ],
+            [
+                "Bridge Creative",
+                12
+            ]
+        ]);
 
         
         // Optional; add a title and set the width and height of the chart
