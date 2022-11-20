@@ -272,7 +272,7 @@ app.post('/members/add', function (req, resp) {
     })*/
     resp.set('Content-Type', 'text/html');
     resp.status(201);
-
+    console.log(output)
     return;
     }
 
