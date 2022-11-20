@@ -341,3 +341,7 @@ margin-left: 4px;
   -webkit-background-size: 49px 100%;
   }
   
+  #txts{
+    font-family:'Raleway', serif !important;
+    font-weight:normal;
+  }
