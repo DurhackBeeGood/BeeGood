@@ -26,6 +26,12 @@ document.getElementById("viewAll").addEventListener('click', function(e){
             const id = body[i].id
             document.getElementById("match"+id).addEventListener('click', function(e){
                 console.log('id: ' + id)
+                fetch("http://127.0.0.1:8090/charities/name/"+id)
+                .then(response => response.json())
+                .then(function(body){
+                    alert("Congrats! You are now a volunteer at " + body + "!")
+                    fetch("http://127.0.0.1:8090/matches/add/"+currentUser+"/"+id)
+                })
             })
         }
     })

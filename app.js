@@ -63,6 +63,21 @@ app.get('/members/password/:user', function (req, resp) {
     resp.send("");
 })
 
+app.get('/matches/add/:user/:charityId', function(req, resp){
+    const user = req.params.user;
+    const charity = parseInt(req.params.charityId);
+    const newMatch = {
+        user: user,
+        chairty: charity
+    }
+    matches.push(newMatch)
+    console.log(matches)
+    const output = '{"members":' + JSON.stringify(members) + ',' + '"charities":' + JSON.stringify(charities) + ',"matches":' + JSON.stringify(matches) + "}"
+    fs.writeFile("./entities.json",output,(err) => {
+        if (err) console.log(err)
+    })
+})
+
 app.post('/members/add', function (req, resp) {
     const username = req.body.newMemberUser;
     
@@ -121,7 +136,10 @@ app.post('/members/add', function (req, resp) {
 
     }
     members.push(newMember)
-    const output = '{"members":' + JSON.stringify(members) + "}"
+
+
+
+    const output = '{"members":' + JSON.stringify(members) + ',' + '"charities":' + JSON.stringify(charities) + '"matches":' + JSON.stringify(matches) + "}"
     fs.writeFile("./entities.json",output,(err) => {
         if (err) console.log(err)
     })
