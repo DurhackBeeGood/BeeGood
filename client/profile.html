@@ -19,6 +19,7 @@
         
         <!--CS-->
         <link rel="stylesheet" href="style.css">
+        <link href='https://fonts.googleapis.com/css?family=Wire+One|Raleway:300' rel='stylesheet' type='text/css'>
 
         <script type="text/javascript">
 // Load google charts
@@ -29,10 +30,10 @@ google.charts.setOnLoadCallback(drawChart);
 function drawChart() {
   var data = google.visualization.arrayToDataTable([
   ['Task', 'Hours per Day'],
-  ['Red Cross', 8],
+  ['DUCK', 2],
   ['RSPCA', 2],
-  ['Money 4 kids', 2],
-  ['Sbees', 8]
+  ['Aspire', 5],
+  ['Feeding Families', 8]
 ]);
 
   // Optional; add a title and set the width and height of the chart
@@ -41,10 +42,11 @@ function drawChart() {
   // Display the chart inside the <div> element with id="piechart"
   var chart = new google.visualization.PieChart(document.getElementById('piechart'));
   chart.draw(data, options);
+
 }
 </script>
     </head>
-    <body>
+    <body id="font-change">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <img src="https://www.vhv.rs/file/max/29/292832_honeycomb-pattern-png.png" alt="logo" width="80" height="60">
             <a class="navbar-brand" href="#">BeGood.</a>
@@ -80,15 +82,15 @@ function drawChart() {
                     <form method="post">
                         <div class="row">
                             <div class="col-md-4">
-                                <div class="profile-img">
-                                    <img src="https://www.3dcadbrowser.com/th/1/8/8141.jpg" alt="" width="400" height="200"/>
+                                <div class="profile-img" >
+                                    <img  style="padding-top: 50px;" src="https://www.3dcadbrowser.com/th/1/8/8141.jpg" alt="" width="300" height="200"/>
 
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="profile-head">
-                                            <h5>Barry Benson</h5>
-                                            <p class="proile-rating">Buzz : <span>120</span></p>
+                                            <h5 style="padding-top: 50 px;">Barry Benson</h5>
+                                            <h5 class="proile-rating;">Buzz : <span>120</span></h5>
                                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                                         <li class="nav-item">
                                             <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
@@ -100,8 +102,8 @@ function drawChart() {
                                     </ul>
                                 </div>
                             </div>
-                            <div class="col-md-2">
-                                <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile"/>
+                            <div class="col-md-2" style="padding-top: 30px;" >
+                                <input type="submit"  class="profile-edit-btn" name="btnAddMore" value="Edit Profile" style="background-color: black; color: white;"/>
                             </div>
                         </div>
                         <div class="row">
@@ -142,6 +144,10 @@ function drawChart() {
                                                         <p>1 Hour a week</p>
                                                     </div>
                                                 </div>
+                                    <p style="padding-top: 30px;">
+                                        Change User Info anytime, to get charity suggestions updated based on hours per week and location. 
+                                        Go on to the store to see what perks your 'Buzz' points will give you
+                                    </p>
                                     </div>
                                     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
 
@@ -150,9 +156,13 @@ function drawChart() {
                                             <div class="col-md-12">
                                                 <div id="piechart"></div>
      
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
+                                            </div>
+                                        </div>
+                                        <p style="padding-top: 20px;">
+                                            Charity Portfolio shows how many hours have been dedicated to your chosen charities
+                                        </p>
+                                        
+                                    </div>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -162,7 +172,7 @@ function drawChart() {
     
         <footer class="container">
             <p class="float-end"><a href="#">Back to top</a></p>
-            <p>&copy; 2022 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms & Conditions</a></p>
+            <p>&copy; 2022 BeGood. Company, Inc. &middot; <a href="#">Privacy Policy</a> &middot; <a href="#">Terms & Conditions</a></p>
           </footer>
     </body>
 
