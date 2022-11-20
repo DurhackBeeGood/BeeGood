@@ -15,6 +15,8 @@ const charities = entities.charities;
 const matches = entities.matches;
 var userCount = entities.userCount;
 var charityCount = entities.charityCount;
+const hours = entities.hours;
+
 
 
 /* app.get('/members/login', function (req, resp) {
@@ -26,6 +28,10 @@ var charityCount = entities.charityCount;
     }
     
 }); */
+
+app.get('/hours/:id', function (req, resp) {
+    resp.json(hours[req.params.id])
+})
 
 app.get('/members', function(req, resp){
     resp.json(members)
@@ -110,7 +116,7 @@ app.get('/matches/add/:user/:charityId', function(req, resp){
     }
     matches.push(newMatch)
     console.log(matches)
-    const output = '{"members":' + JSON.stringify(members) + ',' + '"charities":' + JSON.stringify(charities) + ',"matches":' + JSON.stringify(matches) + ',"userCount":' + JSON.stringify(userCount) + ',"charityCount":' + JSON.stringify(charityCount) + "}"
+    const output = '{"members":' + JSON.stringify(members) + ',' + '"charities":' + JSON.stringify(charities) + ',"matches":' + JSON.stringify(matches) + "}"
     fs.writeFile("./entities.json",output,(err) => {
         if (err) console.log(err)
     })
@@ -126,7 +132,7 @@ app.get('/matches/delete/:user/:charityId', function(req, resp){
             matches.splice(i, 1);
         }
     }
-    const output = '{"members":' + JSON.stringify(members) + ',' + '"charities":' + JSON.stringify(charities) + ',"matches":' + JSON.stringify(matches) + ',"userCount":' + JSON.stringify(userCount) + ',"charityCount":' + JSON.stringify(charityCount) + "}"
+    const output = '{"members":' + JSON.stringify(members) + ',' + '"charities":' + JSON.stringify(charities) + ',"matches":' + JSON.stringify(matches) + "}"
     fs.writeFile("./entities.json",output,(err) => {
         if (err) console.log(err)
     })
@@ -195,7 +201,7 @@ app.post('/members/add', function (req, resp) {
 
 
 
-    const output = '{"members":' + JSON.stringify(members) + ',' + '"charities":' + JSON.stringify(charities) + ', "matches":' + JSON.stringify(matches) + ',"userCount":' + JSON.stringify(userCount) + ',"charityCount":' + JSON.stringify(charityCount) + "}"
+    const output = '{"members":' + JSON.stringify(members) + ',' + '"charities":' + JSON.stringify(charities) + '"matches":' + JSON.stringify(matches) + "}"
     fs.writeFile("./entities.json",output,(err) => {
         if (err) console.log(err)
     })
