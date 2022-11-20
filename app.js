@@ -41,7 +41,6 @@ app.get('/members/password/:user', function (req, resp) {
 
 app.post('/members/add', function (req, resp) {
     const username = req.body.newMemberUser;
-    console.log(username)
     
     /*
     for (let i = 0; i < members.length; i++) {
@@ -97,7 +96,6 @@ app.post('/members/add', function (req, resp) {
         interests: interests
 
     }
-    console.log(newMember)
     members.push(newMember)
     const output = '{"members":' + JSON.stringify(members) + "}"
     fs.writeFile("./entities.json",output,(err) => {
