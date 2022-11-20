@@ -90,9 +90,6 @@
 						</div>
 						<input type="password" id = "loginpass" name = "loginpass" class="form-control" placeholder="password">
 					</div>
-					<div class="row align-items-center remember">
-						<input type="checkbox">Remember Me
-					</div>
 					<div class="form-group">
 						<button  id = "submitlogin" name = "submitlogin" class="btn float-right login_btn">Login</button>
 					</div>
@@ -103,7 +100,7 @@
 					Don't have an account?<a href="signup.html"> Sign Up</a>
 				</div>
 				<div class="d-flex justify-content-center">
-					<a href="#">Forgot your password?</a>
+					<a href="#" onclick='localStorage.removeItem("user")  '>Click to log out</a>
 				</div>
 			</div>
 		</div>
