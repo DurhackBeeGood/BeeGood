@@ -1,14 +1,18 @@
 document.getElementById("submitlogin").addEventListener('click', function (e) {
-    fetch("http://127.0.0.1:8090/members/password/" + id)
+    alert("here");
+    e.preventDefault();
+    user = document.getElementById("loginuser").value;
+    console.log(user);
+    fetch("http://127.0.0.1:8090/members/password/" + user)
     .then(response => response.text())
-    .then(body => Authenticator(body))
+    .then(body => authenticate(body))
 });
 
 
-function Authenticator(password) {
+function authenticate(password) {
     console.log(password)
     const input = document.getElementById("loginpass").value;
-    console.log(input)
+    alert(input)
     if (input === password) {
         alert("Login successful");
     }
