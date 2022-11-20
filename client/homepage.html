@@ -95,10 +95,10 @@
                         <div class="col-lg-12">
                             <div class="row">
                                 <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                                    <input type="text" class="form-control search-slt" placeholder="Enter Postcode">
+                                    <input id="postcode" type="text" class="form-control search-slt" placeholder="Enter Postcode">
                                 </div>
                                 <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                                    <select class="form-control search-slt" id="exampleFormControlSelect1">
+                                    <select class="form-control search-slt" id="HourSelect">
                                         <option>Select Hours Per Week</option>
                                         <option>0.5 Hours</option>
                                         <option>1 Hour</option>
@@ -110,7 +110,7 @@
                                     </select>
                                 </div>
                                 <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                                    <select class="form-control search-slt" id="exampleFormControlSelect1">
+                                    <select class="form-control search-slt" id="TypeSelect">
                                         <option>Select volunteering Opportunity</option>
                                         <option>Family Support</option>
                                         <option>Social Support</option>
@@ -165,11 +165,13 @@
             <p>&copy; 2022 BeGood Company, Inc. &middot; <a href="#">Privacy Policy</a> &middot; <a href="#">Terms & Conditions</a></p>
           </footer>
 
+
         <script
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCUjDQBFEoOkWwcQ9Arxqii9qlGo4UUXsg&callback=initMap&v=weekly"
         defer
       ></script>
       <script src="./homepage.js"></script>
+      <script src="../entities.json"></script>
   
     </body>
 
