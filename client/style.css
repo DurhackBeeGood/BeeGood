@@ -20,7 +20,7 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   height: 100%;
-  font-family: 'Numans', sans-serif;
+  font-family:'Raleway', serif;
 }
 
 #adminbody {
@@ -28,7 +28,7 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   height: 100%;
-  font-family: 'Numans', sans-serif;
+  font-family:'Raleway', serif;
 }
 
 #map {
@@ -290,4 +290,58 @@ margin-left: 4px;
     padding-left: 10px;
     padding-top: 5px;
     text-align: left;
+  }
+  #home_btn{
+    background-color: black;
+    border-color: black;
+  }
+
+  .colour-block {
+    background:#FFC312;
+    width:100%;
+    padding:7% 20% 10% 20%;
+    color:#fff;
+  }
+  .white-block {
+    background:#fff;
+    width:100%;
+    padding:7% 20% 10% 20%;
+    color:#FFC312;
+  }
+  h1 {
+    text-align:center;
+    font-size:80px;
+    font-family:'wire one', serif;
+    font-weight:normal;
+  }
+  p {
+    font-size:20px;
+    font-family:'Raleway', serif;
+  }
+  
+  
+  /*----------------*/
+  /*  SCALLOP down  */
+  /*----------------*/
+  .scallop-down{
+    height:100px;
+    width:100%;
+    background: -webkit-gradient(radial, 50% 0, 10, 50% 0, 40, from(#FFC312), color-stop(0.49, #FFC312), color-stop(0.51, #fff), to(white));
+  -webkit-background-size: 49px 100%;
+  }
+  
+  
+  /*----------------*/
+  /*  SCALLOP up    */
+  /*----------------*/
+  .scallop-up{
+    height:100px;
+    width:100%;
+    background: -webkit-gradient(radial, 50% 100%, 10, 50% 100%, 40, from(#FFC312), color-stop(0.49, #FFC312), color-stop(0.51, #fff), to(white));
+  -webkit-background-size: 49px 100%;
+  }
+  
+  #txts{
+    font-family:'Raleway', serif !important;
+    font-weight:normal;
   }
