@@ -24,8 +24,6 @@ function showHours(hourList){
 function theDomHasLoaded(e) {
     if (localStorage.getItem("user") != null){
 
-
-
     fetch("http://127.0.0.1:8090/members")
     .then(response => response.json())
     .then(function(body){
@@ -46,7 +44,7 @@ function theDomHasLoaded(e) {
     
 
 
-    document.getElementById("buzz").innerHTML = user.buzz;
+    document.getElementById("buzz").innerHTML = hours.reduce((a, b) => a + b, 0);
     document.getElementById("username").innerHTML = user.username;
     document.getElementById("name").innerHTML = user.name;
     document.getElementById("location").innerHTML = user.location;
@@ -54,6 +52,36 @@ function theDomHasLoaded(e) {
     document.getElementById("availability").innerHTML = user.availability;
 
     showHours(hours)
+
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+    
+    // Draw the chart and set the chart values
+    function drawChart() {
+        let hourData = [['Charity', 'Total Hours']]
+        for (let i = 0; i < hours.length; i++) {
+            if (hours[i] != 0){
+                fetch("/charities/name/"+i)
+                .then(response => response.json())
+                .then(function(body){
+                    hourData.push([body,hours[i]])
+                })
+                
+            }
+          }
+         
+        console.log(typeof hourData);        
+        var data = google.visualization.arrayToDataTable(hourData);
+
+        
+        // Optional; add a title and set the width and height of the chart
+        var options = {'title':'My Charity Portfolio', 'width':550, 'height':400};
+        
+        // Display the chart inside the <div> element with id="piechart"
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+        chart.draw(data, options);
+        
+    }
 
 });
     
