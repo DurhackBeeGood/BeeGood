@@ -15,6 +15,7 @@ document.getElementById("viewAll").addEventListener('click', function(e){
             const charity = body[i]
             const id = charity.id
             const charityHtml = makeInfo(charity)
+            // SHOULD CHECK AND INDICATE HERE WHICH ONES ARE MATCHED ALREADY 
             const matchBtnName = 'match' + id
             const matchBtn = '<button id="'+ matchBtnName+ '">Sign up to volunteer</button>'
             newHtml = charityHtml + matchBtn
@@ -23,6 +24,7 @@ document.getElementById("viewAll").addEventListener('click', function(e){
         }
         for (let i=0; i < body.length; i++){
             const id = body[i].id
+            // ONLY ADD THIS EVENT LISTENER IF NOT ALREADY MATCHED
             document.getElementById("match"+id).addEventListener('click', function(e){
                 console.log('id: ' + id)
                 fetch("http://127.0.0.1:8090/charities/name/"+id)
@@ -119,13 +121,20 @@ function trySuggesting(charity, index){
     let newHTML = charityInfo + acceptBtn + denyBtn
     document.getElementById("matchMeGame").innerHTML = newHTML
     console.log("here")
+    let id = charity.id
 
-    document.getElementById("accept"+charity.id).addEventListener("click", function(e){
-        alert("Yes!")
+    document.getElementById("accept"+id).addEventListener("click", function(e){
+        alert("Thanks for joining us!")
+        fetch("http://127.0.0.1:8090/matchs/add/" + currentUser + "/" + id)
+        // REMOVE ID FROM LIST OF SUGGESTIONS
+        // IF SUGGESTIONS IS NON-EMPTY TRY SUGGESTING THE NEXT INDEX ALONG (INDEX + 1 MOD LENGTH)
     })
-    document.getElementById("deny"+charity.id).addEventListener("click", function(e){
+    document.getElementById("deny"+id).addEventListener("click", function(e){
         alert("Passed!")
+        // REMOVE ID FROM LIST OF SUGGESTIONS
+        // IF SUGGESTIONS IS NON-EMPTY TRY SUGGESTING THE NEXT INDEX ALONG (INDEX + 1 MOD LENGTH)
     })
+
 }
 
 function makeInfo(charity){
