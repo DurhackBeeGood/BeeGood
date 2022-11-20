@@ -129,7 +129,7 @@ app.post('/members/add', function (req, resp) {
         email: email,
         age: age,
         location: location,
-        availibility: "",
+        availability: "",
         buzz: 0,
         donationHistory: [],
         interests: interests
