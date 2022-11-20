@@ -13,6 +13,8 @@ let entities = require('./entities.json');
 const members = entities.members;
 const charities = entities.charities;
 const matches = entities.matches;
+const hours = entities.hours;
+
 
 console.log(charities)
 
@@ -25,6 +27,10 @@ console.log(charities)
     }
     
 }); */
+
+app.get('/hours/:id', function (req, resp) {
+    resp.json(hours[req.params.id])
+})
 
 app.get('/members', function(req, resp){
     resp.json(members)
@@ -72,7 +78,7 @@ app.get('/matches/add/:user/:charityId', function(req, resp){
     }
     matches.push(newMatch)
     console.log(matches)
-    const output = '{"members":' + JSON.stringify(members) + ',' + '"charities":' + JSON.stringify(charities) + ',"matches":' + JSON.stringify(matches) + "}"
+    const output = '{"members":' + JSON.stringify(members) + ',' + '"charities":' + JSON.stringify(charities) + ',"matches":' + JSON.stringify(matches) + ',"hours":' + JSON.stringify(hours) + "}"
     fs.writeFile("./entities.json",output,(err) => {
         if (err) console.log(err)
     })
@@ -88,7 +94,7 @@ app.get('/matches/delete/:user/:charityId', function(req, resp){
             matches.splice(i, 1);
         }
     }
-    const output = '{"members":' + JSON.stringify(members) + ',' + '"charities":' + JSON.stringify(charities) + ',"matches":' + JSON.stringify(matches) + "}"
+    const output = '{"members":' + JSON.stringify(members) + ',' + '"charities":' + JSON.stringify(charities) + ',"matches":' + JSON.stringify(matches) + ',"hours":' + JSON.stringify(hours) + "}"
     fs.writeFile("./entities.json",output,(err) => {
         if (err) console.log(err)
     })
@@ -155,7 +161,7 @@ app.post('/members/add', function (req, resp) {
 
 
 
-    const output = '{"members":' + JSON.stringify(members) + ',' + '"charities":' + JSON.stringify(charities) + '"matches":' + JSON.stringify(matches) + "}"
+    const output = '{"members":' + JSON.stringify(members) + ',' + '"charities":' + JSON.stringify(charities) + '"matches":' + JSON.stringify(matches) + ',"hours":' + JSON.stringify(hours) + "}"
     fs.writeFile("./entities.json",output,(err) => {
         if (err) console.log(err)
     })
