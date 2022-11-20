@@ -12,6 +12,7 @@ app.use(express.urlencoded({ extended: true })); // Parse URL-encoded bodies
 let entities = require('./entities.json');
 const members = entities.members;
 const charities = entities.charities;
+const matches = entities.matches;
 
 console.log(charities)
 
@@ -30,8 +31,25 @@ app.get('/members', function(req, resp){
 })
 
 app.get('/charities', function(req, resp){
-    console.log(charities)
     resp.json(charities)
+})
+
+app.get('/matches', function(req, resp){
+    resp.json(matches)
+})
+
+app.get('/charities/name/:id', function(req, resp){
+    const id = parseInt(req.params.id);
+    console.log(id)
+    let charity;
+    for (let i = 0; i < charities.length; i++) {
+        charity = charities[i];
+        if (charity.id === id){
+            resp.json(charity.charity)
+            return
+        }
+    }
+    resp.send(404);
 })
 
 app.get('/members/password/:user', function (req, resp) {
