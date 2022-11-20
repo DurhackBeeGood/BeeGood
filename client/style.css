@@ -37,6 +37,12 @@ align-content: center;
   margin-top: 5%;
 }
 
+#charitiesContainer {
+  width: 100%;
+  margin-left: 5%;
+  margin-top: 5%;
+}
+
 .card{
 height: 370px;
 margin-top: 65px;
