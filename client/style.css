@@ -102,13 +102,31 @@ margin-left: 15px;
 margin-right: 5px;
 }
 
-.login_btn{
+.login_btn {
 color: black;
 background-color: #FFC312;
 width: 100px;
 }
 
-.login_btn:hover{
+.matchBtn{
+  color: black;
+background-color: #FFC312;
+width: 200px;
+}
+
+.acceptBtn{
+  color: black;
+background-color: #43e153;
+width: 200px;
+}
+
+.denyBtn, .unmatchBtn{
+  color: black;
+background-color: #ff3e12;
+width: 250px;
+}
+
+.login_btn:hover, .matchBtn:hover, .unmatchBtn:hover, .acceptBtn:hover, .denyBtn:hover {
 color: black;
 background-color: white;
 }
