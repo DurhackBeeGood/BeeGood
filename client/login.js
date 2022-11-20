@@ -12,7 +12,7 @@ function authenticate(password, input) {
     if(password === ""){
         alert("User does not exist")
     }
-    if (input === password) {
+    else if (input === password) {
         alert("Login successful");
     }
     else {

@@ -35,7 +35,6 @@ app.get('/members/password/:user', function (req, resp) {
     for (let i = 0; i < members.length; i++) {
         m = members[i]
         if (m.username === req.params.user) {
-            console.log(m.pass)
             resp.send(m.pass);
             return;
         }
