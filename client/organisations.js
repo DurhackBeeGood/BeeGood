@@ -83,7 +83,7 @@ document.getElementById("viewMatches").addEventListener('click', function(e){
                     document.getElementById("unmatch"+charityId).addEventListener('click', function(e){
                         console.log('id: ' + charityId)
                         fetch("http://127.0.0.1:8090/matches/delete/"+currentUser+"/"+charityId)
-
+                        
                     })
                 })
             }
