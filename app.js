@@ -11,6 +11,7 @@ app.use(express.urlencoded({ extended: true })); // Parse URL-encoded bodies
 
 let entities = require('./entities.json');
 const members = entities.members;
+const charities = entities.charities;
 
 /* app.get('/members/login', function (req, resp) {
     const username = req.body.loginuser;
@@ -21,6 +22,14 @@ const members = entities.members;
     }
     
 }); */
+
+app.get('/members', function(req, resp){
+    resp.json(members)
+})
+
+app.get('/charities', function(req, resp){
+    resp.json(charities)
+})
 
 app.get('/members/password/:user', function (req, resp) {
     for (let i = 0; i < members.length; i++) {
