@@ -68,7 +68,7 @@ app.get('/matches/add/:user/:charityId', function(req, resp){
     const charity = parseInt(req.params.charityId);
     const newMatch = {
         user: user,
-        chairty: charity
+        charity: charity
     }
     matches.push(newMatch)
     console.log(matches)
