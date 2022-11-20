@@ -6,7 +6,6 @@
 document.addEventListener("DOMContentLoaded", theDomHasLoaded, false);
 
 function theDomHasLoaded(e) {
-    console.log(localStorage.getItem("user"))
     if (localStorage.getItem("user") != null){
     fetch("http://127.0.0.1:8090/members")
     .then(response => response.json())
