@@ -50,17 +50,23 @@ app.post('/members/add', function (req, resp) {
     const age = req.body.newMemberAge;
     const location = req.body.newMemberLocation;
     let interests = []
-    if (req.body.environment === 'on'){
-        interests.push("environment")
-    }
     if (req.body.homelessness === 'on'){
-        interests.push("homelessness")
-    }
-    if (req.body.animals === 'on'){
-        interests.push("animals")
+        interests.push("Homelessness")
     }
     if (req.body.youth === 'on'){
-        interests.push("youth")
+        interests.push("Youth work")
+    }
+    if (req.body.green === 'on'){
+        interests.push("Green")
+    }
+    if (req.body.beaches === 'on'){
+        interests.push("Beach cleaning")
+    }
+    if (req.body.elderly === 'on'){
+        interests.push("Working with the elderly")
+    }
+    if (req.body.foodbanks === 'on'){
+        interests.push("Food banks")
     }
    
    
