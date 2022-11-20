@@ -44,6 +44,7 @@ document.getElementById("matchMe").addEventListener('click', function(e){
     document.getElementById("matchMe").style.display = "none";
     document.getElementById("viewMatches").style.display = "none";
     document.getElementById("resetOrganisations").style.display = "block";
+    document.getElementById("matchMeGame").innerHTML += "<p>In future, we will have matching game here to suggest charities based on volunteers' preferences."
 });
 
 document.getElementById("resetOrganisations").addEventListener('click', function(e){
@@ -54,6 +55,7 @@ document.getElementById("resetOrganisations").addEventListener('click', function
     document.getElementById("resetOrganisations").style.display = "none";
     document.getElementById("charitiesContainer").innerHTML = "";
     document.getElementById("matchesContainer").innerHTML = "";
+    document.getElementById("matchMeGame").innerHTML = "";
 });
 
 document.getElementById("viewMatches").addEventListener('click', function(e){
