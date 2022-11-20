@@ -123,6 +123,17 @@ app.get('/members/password/:user', function (req, resp) {
     resp.send("");
 })
 
+app.get('/charities/password/:id', function (req, resp) {
+    for (let i = 0; i < charities.length; i++) {
+        c = charities[i]
+        if (c.id === parseInt(req.params.id)) {
+            resp.send(c.password);
+            return;
+        }
+    }
+    resp.send("");
+})
+
 app.get('/matches/add/:user/:charityId', function(req, resp){
     const user = req.params.user;
     const charity = parseInt(req.params.charityId);
