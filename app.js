@@ -1,3 +1,4 @@
+const { match } = require('assert');
 const { json } = require('body-parser');
 const express = require('express');
 const fs = require('fs')
@@ -132,6 +133,39 @@ app.get('/charities/password/:id', function (req, resp) {
         }
     }
     resp.send("");
+})
+
+app.get('/hours/:charity/:user', function(req, resp){
+    const charity = req.params.charity
+    const user = req.params.user
+    // GET HOURS HERE
+
+    resp.send("10")
+})
+
+
+app.get('/matches/charities/:id', function(req, resp){
+    let array = []
+    const id = parseInt(req.params.id)
+    for (let i = 0; i < matches.length; i++) {
+       let match = matches[i];
+        if (match.charity == id){
+            array.push(match.user)
+        }
+    }
+    resp.send(array)
+})
+
+app.get('/matches/members/:user', function(req, resp){
+    let array = []
+    const user = req.params.user 
+    for (let i = 0; i < matches.length; i++) {
+        match = matches[i];
+        if (match.user == user){
+            array.push(match.charity)
+        }
+    }
+    resp.send(array)
 })
 
 app.get('/matches/add/:user/:charityId', function(req, resp){
