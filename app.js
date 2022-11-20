@@ -33,10 +33,12 @@ app.get('/charities', function(req, resp){
 
 app.get('/members/password/:user', function (req, resp) {
     for (let i = 0; i < members.length; i++) {
-        if (members[i].username === req.params.user) {
+        if (members[i].username === req.query.user) {
             resp.send(members[i].password);
+            return;
         }
     }
+    resp.send("");
 })
 
 app.post('/members/add', function (req, resp) {
