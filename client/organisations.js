@@ -124,15 +124,21 @@ function trySuggesting(charity, index){
     let id = charity.id
 
     document.getElementById("accept"+id).addEventListener("click", function(e){
+        suggestions.splice(index, 1)
         alert("Thanks for joining us!")
+        if(suggestions.length > 0){
+            let newIndex = (index + 1) % suggestions.length
+            trySuggesting(suggestions[newIndex],newIndex )
+        }
         fetch("http://127.0.0.1:8090/matchs/add/" + currentUser + "/" + id)
-        // REMOVE ID FROM LIST OF SUGGESTIONS
-        // IF SUGGESTIONS IS NON-EMPTY TRY SUGGESTING THE NEXT INDEX ALONG (INDEX + 1 MOD LENGTH)
     })
     document.getElementById("deny"+id).addEventListener("click", function(e){
         alert("Passed!")
-        // REMOVE ID FROM LIST OF SUGGESTIONS
-        // IF SUGGESTIONS IS NON-EMPTY TRY SUGGESTING THE NEXT INDEX ALONG (INDEX + 1 MOD LENGTH)
+        suggestions.splice(index, 1)
+        if(suggestions.length > 0){
+            let newIndex = (index + 1) % suggestions.length
+            trySuggesting(suggestions[newIndex],newIndex )
+        }
     })
 
 }
