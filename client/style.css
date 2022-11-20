@@ -43,6 +43,11 @@ align-content: center;
   float: right;
   margin-top: 5%;
 }
+#viewMatches{
+  width: 60%;
+  float: left;
+  margin-top: 5%;
+}
 
 #matchMe{
   width: 60%;
@@ -368,6 +373,11 @@ margin-left: 4px;
     width:100%;
     background: -webkit-gradient(radial, 50% 100%, 10, 50% 100%, 40, from(#FFC312), color-stop(0.49, #FFC312), color-stop(0.51, #fff), to(white));
   -webkit-background-size: 49px 100%;
+  }
+
+  #org_btn{
+    text-align: center;
+    align-items: center;
   }
   
  
