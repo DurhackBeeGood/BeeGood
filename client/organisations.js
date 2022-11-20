@@ -131,3 +131,7 @@ function trySuggesting(charity, index){
         alert("Passed!")
     })
 }
+
+document.getElementById("next-match").addEventListener("click", function(e){
+    alert("Not yet functional")
+})
