@@ -38,6 +38,11 @@ height: 100%;
 align-content: center;
 }
 
+.charityBox{
+  background-color: rgb(235, 211, 211);
+  outline: 1px solid black;
+}
+
 #viewAll{
   width: 60%;
   float: right;
