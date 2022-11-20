@@ -36,7 +36,6 @@ function theDomHasLoaded(e) {
 
 
     const query = "http://127.0.0.1:8090/hours/" + id;
-    console.log(query)
     fetch(query)
     .then(response => response.json())
     .then(function(body){

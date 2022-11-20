@@ -37,6 +37,23 @@ app.get('/members', function(req, resp){
     resp.json(members)
 })
 
+app.get('/members/buzz', function(req, resp){
+    console.log("started");
+    let list = [];
+    var item;
+    for (let i = 0; i < members.length; i++) {
+        item = [];
+        item.push(hours[i].reduce((a, b) => a + b, 0));
+        item.push(members[i].name)
+        item.push(members[i].location)
+        list.push(item);
+      }
+
+    list.sort((a, b) => parseFloat(b[0]) - parseFloat(a[0]));
+    console.log(list);
+    resp.json(list);
+})
+
 app.get('/charities', function(req, resp){
     resp.json(charities)
 })
@@ -191,13 +208,13 @@ app.post('/members/add', function (req, resp) {
         age: age,
         location: location,
         availability: "",
-        buzz: 0,
         donationHistory: [],
         interests: interests
 
     }
     members.push(newMember)
     userCount = parseInt(userCount) + 1;
+    hours.push(Array(charityCount).fill(0))
 
 
 
