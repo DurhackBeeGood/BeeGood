@@ -17,7 +17,7 @@ document.getElementById("viewAll").addEventListener('click', function(e){
             const charityHtml = makeInfo(charity)
             // SHOULD CHECK AND INDICATE HERE WHICH ONES ARE MATCHED ALREADY 
             const matchBtnName = 'match' + id
-            const matchBtn = '<button id="'+ matchBtnName+ '">Sign up to volunteer</button>'
+            const matchBtn = '<button class="matchBtn" id="'+ matchBtnName+ '">Sign up to volunteer</button>'
             newHtml = charityHtml + matchBtn
             container.innerHTML += newHtml
 
@@ -82,7 +82,7 @@ document.getElementById("viewMatches").addEventListener('click', function(e){
                     console.log(body)
                     let info = makeInfo(body)
                     const unmatchBtnName = 'unmatch' + charityId
-                    const unmatchBtn = '<button id="'+ unmatchBtnName+ '">Stop volunteering here</button>'
+                    const unmatchBtn = '<button class="unmatchBtn" id="'+ unmatchBtnName+ '">Stop volunteering here</button>'
                     newHTML = info + unmatchBtn
                     document.getElementById("matchesContainer").innerHTML += newHTML
 
@@ -116,8 +116,8 @@ function startMatchingGame(user){
 
 function trySuggesting(charity, index){
     let charityInfo =  makeInfo(charity)
-    let acceptBtn = '<button id="accept'+charity.id + '">Accept</br>'
-    let denyBtn = '<button id="deny'+charity.id + '">Not interested></br>'
+    let acceptBtn = '<button class="acceptBtn" id="accept'+charity.id + '">Accept</br>'
+    let denyBtn = '<button class="denyBtn" id="deny'+charity.id + '">Not interested></br>'
     let newHTML = charityInfo + acceptBtn + denyBtn
     document.getElementById("matchMeGame").innerHTML = newHTML
     console.log("here")

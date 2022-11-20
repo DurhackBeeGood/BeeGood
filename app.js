@@ -50,7 +50,6 @@ app.get('/members/buzz', function(req, resp){
       }
 
     list.sort((a, b) => parseFloat(b[0]) - parseFloat(a[0]));
-    console.log(list);
     resp.json(list);
 })
 
@@ -124,6 +123,17 @@ app.get('/members/password/:user', function (req, resp) {
     resp.send("");
 })
 
+app.get('/charities/password/:id', function (req, resp) {
+    for (let i = 0; i < charities.length; i++) {
+        c = charities[i]
+        if (c.id === parseInt(req.params.id)) {
+            resp.send(c.password);
+            return;
+        }
+    }
+    resp.send("");
+})
+
 app.get('/matches/add/:user/:charityId', function(req, resp){
     const user = req.params.user;
     const charity = parseInt(req.params.charityId);
@@ -132,11 +142,12 @@ app.get('/matches/add/:user/:charityId', function(req, resp){
         charity: charity
     }
     matches.push(newMatch)
-    console.log(matches)
+    writeFile();
+    /*
     const output = '{"members":' + JSON.stringify(members) + ',' + '"charities":' + JSON.stringify(charities) + ',"matches":' + JSON.stringify(matches) + "}"
     fs.writeFile("./entities.json",output,(err) => {
         if (err) console.log(err)
-    })
+    })*/
 })
 
 app.get('/matches/delete/:user/:charityId', function(req, resp){
@@ -149,10 +160,12 @@ app.get('/matches/delete/:user/:charityId', function(req, resp){
             matches.splice(i, 1);
         }
     }
+    writeFile();
+    /*
     const output = '{"members":' + JSON.stringify(members) + ',' + '"charities":' + JSON.stringify(charities) + ',"matches":' + JSON.stringify(matches) + "}"
     fs.writeFile("./entities.json",output,(err) => {
         if (err) console.log(err)
-    })
+    })*/
 })
 
 app.post('/members/add', function (req, resp) {
@@ -216,12 +229,13 @@ app.post('/members/add', function (req, resp) {
     userCount = parseInt(userCount) + 1;
     hours.push(Array(charityCount).fill(0))
 
+    writeFile();
 
-
+/*
     const output = '{"members":' + JSON.stringify(members) + ',' + '"charities":' + JSON.stringify(charities) + '"matches":' + JSON.stringify(matches) + "}"
     fs.writeFile("./entities.json",output,(err) => {
         if (err) console.log(err)
-    })
+    })*/
     resp.set('Content-Type', 'text/html');
     resp.status(201);
     console.log(output)
@@ -229,5 +243,13 @@ app.post('/members/add', function (req, resp) {
     }
 
 );
+
+function writeFile(){
+    console.log(matches)
+    const output = '{"members":' + JSON.stringify(members) + ',' + '"charities":' + JSON.stringify(charities) + ',' + '"matches":' + JSON.stringify(matches) + ','+ '"userCount":' + userCount + ',' + '"charityCount":' + charityCount + ',' + '"hours":' +  JSON.stringify(hours) + "}"
+    fs.writeFile("./entities.json",output,(err) => {
+        if (err) console.log(err)
+    })
+}
 
 module.exports = app;
