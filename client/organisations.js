@@ -10,8 +10,20 @@ document.getElementById("viewAll").addEventListener('click', function(e){
         console.log("here")
         for (let i = 0; i < body.length; i++) {
             const charity = body[i]
-            const name = '<p>' + charity.charity + "<p>"
-            container.innerHTML += name
+            const id = charity.id
+            const name = charity.charity
+            const nameHtml = '<p>' + name + "<p>"
+            const matchBtnName = 'match' + id
+            const matchBtn = '<button id="'+ matchBtnName+ '">Match</button>'
+            newHtml = nameHtml + matchBtn
+            container.innerHTML += newHtml
+
+        }
+        for (let i=0; i < body.length; i++){
+            const id = body[i].id
+            document.getElementById("match"+id).addEventListener('click', function(e){
+                console.log('id: ' + id)
+            })
         }
     })
 });

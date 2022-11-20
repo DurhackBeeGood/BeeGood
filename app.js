@@ -13,6 +13,8 @@ let entities = require('./entities.json');
 const members = entities.members;
 const charities = entities.charities;
 
+console.log(charities)
+
 /* app.get('/members/login', function (req, resp) {
     const username = req.body.loginuser;
     const password = req.body.loginpass;
@@ -28,6 +30,7 @@ app.get('/members', function(req, resp){
 })
 
 app.get('/charities', function(req, resp){
+    console.log(charities)
     resp.json(charities)
 })
 
