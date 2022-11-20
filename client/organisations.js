@@ -11,15 +11,13 @@ document.getElementById("viewAll").addEventListener('click', function(e){
     fetch("http://127.0.0.1:8090/charities")
     .then(response => response.json())
     .then(function(body){
-        console.log("here")
         for (let i = 0; i < body.length; i++) {
             const charity = body[i]
             const id = charity.id
-            const name = charity.charity
-            const nameHtml = '<p>' + name + "<p>"
+            const charityHtml = makeInfo(charity)
             const matchBtnName = 'match' + id
             const matchBtn = '<button id="'+ matchBtnName+ '">Sign up to volunteer</button>'
-            newHtml = nameHtml + matchBtn
+            newHtml = charityHtml + matchBtn
             container.innerHTML += newHtml
 
         }
@@ -56,7 +54,6 @@ document.getElementById("resetOrganisations").addEventListener('click', function
     document.getElementById("matchMe").style.display = "block";
     document.getElementById("viewMatches").style.display = "block";
     document.getElementById("resetOrganisations").style.display = "none";
-    document.getElementById("next-match").style.display = "none"
     document.getElementById("charitiesContainer").innerHTML = "";
     document.getElementById("matchesContainer").innerHTML = "";
     document.getElementById("matchMeGame").innerHTML = "";
@@ -77,13 +74,14 @@ document.getElementById("viewMatches").addEventListener('click', function(e){
             match = body[i]
             if (match.user === currentUser){
                 charityId = match.charity
-                fetch("http://127.0.0.1:8090/charities/name/"+charityId)
-                .then(response => response.text())
+                fetch("http://127.0.0.1:8090/charities/info/"+charityId)
+                .then(response => response.json())
                 .then(function(body){
-                    nameHTML = "<p>"+body+"</p>"
+                    console.log(body)
+                    let info = makeInfo(body)
                     const unmatchBtnName = 'unmatch' + charityId
                     const unmatchBtn = '<button id="'+ unmatchBtnName+ '">Stop volunteering here</button>'
-                    newHTML = nameHTML + unmatchBtn
+                    newHTML = info + unmatchBtn
                     document.getElementById("matchesContainer").innerHTML += newHTML
 
                     document.getElementById("unmatch"+charityId).addEventListener('click', function(e){
@@ -105,7 +103,6 @@ function startMatchingGame(user){
     .then(response => response.json())
     .then(function(body){
         suggestions = body;
-        console.log(body)
         if (body.length > 0){
             trySuggesting(body[0], 0);
         }
@@ -116,8 +113,7 @@ function startMatchingGame(user){
 }
 
 function trySuggesting(charity, index){
-    document.getElementById("next-match").style.display = "block"
-    let charityInfo =  "<p>" + charity.charity + "</p>"
+    let charityInfo =  makeInfo(charity)
     let acceptBtn = '<button id="accept'+charity.id + '">Accept</br>'
     let denyBtn = '<button id="deny'+charity.id + '">Not interested></br>'
     let newHTML = charityInfo + acceptBtn + denyBtn
@@ -132,6 +128,9 @@ function trySuggesting(charity, index){
     })
 }
 
-document.getElementById("next-match").addEventListener("click", function(e){
-    alert("Not yet functional")
-})
+function makeInfo(charity){
+    // MAKE HTML INFO ABOUT THE CHARITY HERE, PICTURES ETC
+    // CHARITY.EMAIL, CHARITY.NUMBER, ETC GIVE ALL THE INFO YOU NEED
+    const nameHtml = '<p>' + charity.charity + "<p>"
+    return nameHtml;
+}

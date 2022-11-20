@@ -64,6 +64,19 @@ app.get('/suitableCharities/:user', function(req, resp){
     return;
 })
 
+app.get('/charities/info/:id', function(req, resp){
+    const id = parseInt(req.params.id);
+    let charity;
+    for (let i = 0; i < charities.length; i++) {
+        charity = charities[i];
+        if (charity.id === id){
+            resp.json(charity)
+            return
+        }
+    }
+    resp.sendStatus(404);
+})
+
 app.get('/charities/name/:id', function(req, resp){
     const id = parseInt(req.params.id);
     let charity;
