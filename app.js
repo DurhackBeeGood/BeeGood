@@ -14,7 +14,6 @@ const members = entities.members;
 const charities = entities.charities;
 const matches = entities.matches;
 
-console.log(charities)
 
 /* app.get('/members/login', function (req, resp) {
     const username = req.body.loginuser;
@@ -38,9 +37,33 @@ app.get('/matches', function(req, resp){
     resp.json(matches)
 })
 
+app.get('/suitableCharities/:user', function(req, resp){
+    let suitable = [];
+    const user = req.params.user
+    let themes = undefined;
+    for (let i = 0; i < members.length; i++) {
+        m = members[i];
+        if (m.username === user){
+            themes = m.interests;
+            break;
+        }
+    }
+    if (themes == undefined){
+        resp.sendStatus(404);
+        return;
+    }
+    for (let i = 0; i < charities.length; i++) {
+        charity = charities[i]
+        if (themes.includes(charity.type)){
+            suitable.push(charity);
+        }
+    }
+    resp.send(suitable);
+    return;
+})
+
 app.get('/charities/name/:id', function(req, resp){
     const id = parseInt(req.params.id);
-    console.log(id)
     let charity;
     for (let i = 0; i < charities.length; i++) {
         charity = charities[i];
@@ -71,7 +94,6 @@ app.get('/matches/add/:user/:charityId', function(req, resp){
         charity: charity
     }
     matches.push(newMatch)
-    console.log(matches)
     const output = '{"members":' + JSON.stringify(members) + ',' + '"charities":' + JSON.stringify(charities) + ',"matches":' + JSON.stringify(matches) + "}"
     fs.writeFile("./entities.json",output,(err) => {
         if (err) console.log(err)
