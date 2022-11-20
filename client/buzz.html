@@ -128,6 +128,14 @@
     
     <p>Update your volunteer's completed hours!.</p>
     <div id="buzzGiver"></div>
+    <form action="http://127.0.0.1:8090/hours/update" method="post" name="updateHours" id="updateHours" style="display: none">
+        <label for="userForHours">Username:</label>
+        <input type="text" name="userForHours" required><br>
+        <label for="hoursValue">New hours value:</label>
+        <input type="text" name="hoursValue" required><br>
+        <button id="submitHours" type="submit" class="btn submit-btn">Submit</button>
+    </form>
+    
     
 <script src="buzz.js"></script>
 </body>

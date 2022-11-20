@@ -138,7 +138,7 @@ app.get('/charities/password/:id', function (req, resp) {
 app.get('/hours/:charity/:user', function(req, resp){
     const charity = req.params.charity
     const user = req.params.user
-    // GET HOURS HERE
+    // GET HOURS HERE AND SEND THEM
 
     resp.send("10")
 })
@@ -201,6 +201,16 @@ app.get('/matches/delete/:user/:charityId', function(req, resp){
         if (err) console.log(err)
     })*/
 })
+
+app.post('/hours/update', function (req, resp) {
+    const user = req.body.userForHours;
+    const hours = req.body.hoursValue;
+    //const charityId = localStorage.getItem("charity")
+    // CANT ACCESS LOCAL STORAGE HERE? MIGHT HAVE TO SEND WHICH CHARITY IS LOGGED IN BODY
+    console.log(user, hours)
+    // UPDATE HOURS VALUE THEN CALL WRITE VALUE 
+    resp.sendStatus(200);
+});
 
 app.post('/members/add', function (req, resp) {
     const username = req.body.newMemberUser;

@@ -71,4 +71,5 @@ function createHoursForCharity(charityId){
             })
         }
     })
+    document.getElementById("updateHours").style.display = "block";
 }
